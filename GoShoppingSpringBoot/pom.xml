@@ -11,6 +11,9 @@
 	<groupId>com.goshopping</groupId>
 	<artifactId>GoShopping</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
+	<packaging>pom</packaging>
+
 	<name>GoShopping</name>
 	<description>A project for Spring Boot</description>
 	<properties>
@@ -30,12 +33,14 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 	<modules>
