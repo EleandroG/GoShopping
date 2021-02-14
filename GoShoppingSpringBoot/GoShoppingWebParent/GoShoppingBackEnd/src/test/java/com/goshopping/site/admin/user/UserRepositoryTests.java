@@ -47,5 +47,45 @@ public class UserRepositoryTests {
         assertThat(savedUser.getId()).isGreaterThan(0);
     }
 
+    @Test
+    public void testListAllUsers() {
+        Iterable<User> listUsers = repo.findAll();
+        listUsers.forEach(user -> System.out.println(user));
+
+    }
+
+    @Test
+    public void testGetUserById() {
+        User user = repo.findById(1).get();
+        System.out.println(user);
+        assertThat(user).isNotNull();
+    }
+
+    @Test
+    public void testUpdateUserDetails() {
+        User user = repo.findById(1).get();
+        user.setEnabled(true);
+        user.setEmail("eleandrog@gmail.com");
+        repo.save(user);
+    }
+
+    @Test
+    public void testUpdateUserRoles() {
+        User user2 = repo.findById(2).get();
+        Role roleEditor = new Role(3);
+        Role roleSalesperson = new Role(2);
+        user2.getRoles().remove(roleEditor);
+        user2.addRole(roleSalesperson);
+        repo.save(user2);
+    }
+
+    @Test
+    public void testDeleteUser() {
+        Integer userId = 2;
+        repo.deleteById(userId);
+
+    }
+
+
 
 }
