@@ -13,6 +13,7 @@
 	<description>GoShopping Admin Project</description>
 	<properties>
 		<java.version>15</java.version>
+		<jdkToolsPath>${java.home}/../lib/tools.jar</jdkToolsPath>
 	</properties>
 	<dependencies>
 

@@ -18,6 +18,7 @@
 		<java.version>11</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<jdkToolsPath>${java.home}/../lib/tools.jar</jdkToolsPath>
 	</properties>
 
 	<dependencies>
