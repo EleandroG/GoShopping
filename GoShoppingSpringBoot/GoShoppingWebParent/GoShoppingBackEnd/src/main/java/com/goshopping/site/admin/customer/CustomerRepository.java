@@ -1,7 +1,6 @@
 package com.goshopping.site.admin.customer;
 
 import com.goshopping.common.entity.Customer;
-import com.goshopping.common.entity.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

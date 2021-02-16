@@ -51,8 +51,9 @@
         </div>
 
         <div>
-            <h2>Manage Customers</h2>
-            <a th:href="@{/customers/new}">Create New Customer</a>
+            <h2>Products</h2>
+            <!-- TODO: URL para ver o cart? -->
+            <a th:href="@{/products/cart}"> Cart </a>
         </div>
 
         <div th:if="${message != null}" class="alert alert-success text-center">
@@ -63,73 +64,59 @@
             <table class="table table-bordered table-striped table-hover table-responsive-xl">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Customer ID</th>
-                        <th>Email</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Address</th>
-                        <th>Postal Code</th>
+                        <th>Product ID</th>
+                        <th>Price</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Brand</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="customer : ${listCustomers}">
-                        <td>[[${customer.id}]]</td>
-                        <td>[[${customer.email}]]</td>
-                        <td>[[${customer.firstName}]]</td>
-                        <td>[[${customer.lastName}]]</td>
-                        <td>[[${customer.address}]]</td>
-                        <td>[[${customer.postalCode}]]</td>
+                    <tr th:each="product : ${listProducts}">
+                        <td>[[${product.id}]]</td>
+                        <td>[[${product.price}]]</td>
+                        <td>[[${products.name}]]</td>
+                        <td>[[${products.description}]]</td>
+                        <td>[[${products.brand}]]</td>
                         <td>
-                            <a class="fas fa-edit fa-2x icon-green" th:href="@{'/customers/edit/' + ${customer.id}}" title="Edit the customer">Edit</a>
-                            &nbsp;
-                            <a class="fas fa-trash fa-2x icon-dark link-delete" th:href="@{'/customers/delete/' + ${customer.id}}" th:customerId="${customer.id}" title="Delete this customer">Delete</a>
+                            <!-- TODO: URL para add ao cart? URL atual tá certo? -->
+                            <a th:href="@{'/products' + ${product.id}}" title="Add to the cart"> + </a>
+                            <!-- &nbsp;
+                            <a class="fas fa-trash fa-2x icon-dark link-delete" th:href="@{'/customers/delete/' + ${customer.id}}" th:customerId="${customer.id}" title="Delete this customer">Delete</a> -->
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <div class="modal fade text-center" id="confirmModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">
-                            Delete Confirmation
-                        </h4>
-                        <button type="button" class="close" data-dismiss="modal">
-                            &times;
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <span id="confirmText"></span>
-                    </div>
-                    <div class="modal-footer">
-                        <a class="btn btn-success" href="" id="yesButton">Yes</a>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">
-                            No
-                        </button>
+        <!--    <div class="modal fade text-center" id="confirmModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">
+                                Delete Confirmation
+                            </h4>
+                            <button type="button" class="close" data-dismiss="modal">
+                                &times;
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <span id="confirmText"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-success" href="" id="yesButton">Yes</a>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                No
+                            </button>
+                        </div>
                     </div>
                 </div>
+            </div>  -->
+
+            <div class="text-center">
+                <p>GoShopping Customers Panel - Copyright &copy; GoShopping</p>
             </div>
         </div>
-
-        <div class="text-center">
-            <p>GoShopping Customers Panel - Copyright &copy; GoShopping</p>
-        </div>
-    </div>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".link-delete").on("click", function(e) {
-            e.preventDefault();
-            link = $(this);
-            //alert($(this).attr("href"));
-            customerId = link.attr("customerId");
-            $("#yesButton").attr("href", link.attr("href"));
-            $("#confirmText").text("Are you sure you want to delete this customer ID: " + customerId + " ?")
-            $("#confirmModal").modal();
-        })
-    })
-</script>
-</body>
-</html>
+    </body>
+    </html>

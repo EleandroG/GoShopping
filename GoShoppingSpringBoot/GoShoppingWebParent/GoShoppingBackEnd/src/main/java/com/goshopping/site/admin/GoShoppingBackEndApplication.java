@@ -14,5 +14,4 @@ public class GoShoppingBackEndApplication {
 
 		SpringApplication.run(GoShoppingBackEndApplication.class, args);
 	}
-
 }

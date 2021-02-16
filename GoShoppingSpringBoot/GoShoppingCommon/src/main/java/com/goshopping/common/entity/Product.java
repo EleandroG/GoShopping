@@ -11,7 +11,7 @@ public class Product {
     private Integer id;
 
     @Column(name = "price", length = 45, nullable = false)
-    private double price;
+    private String price;
 
     @Column(name = "name", length = 45, nullable = false)
     private String name;
@@ -19,18 +19,17 @@ public class Product {
     @Column(name = "description", length = 45, nullable = false)
     private String description;
 
-    @Column(name = "brand", length = 45, nullable = false)
-    private double brand;
+    /*@Column(name = "brand", length = 20, nullable = false)
+    private String brand;*/
 
     public Product() {
     }
 
-    public Product(Integer id, double price, String name, String description, double brand) {
-        this.id = id;
+    public Product(String price, String name, String description/*, String brand*/) {
         this.price = price;
         this.name = name;
         this.description = description;
-        this.brand = brand;
+        //this.brand = brand;
     }
 
     public Integer getId() {
@@ -41,11 +40,11 @@ public class Product {
         this.id = id;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -64,12 +63,11 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public double getBrand() {
+    /*public String getBrand() {
         return brand;
     }
 
-    public void setBrand(double brand) {
+    public void setBrand(String brand) {
         this.brand = brand;
-    }
+    }*/
 }
