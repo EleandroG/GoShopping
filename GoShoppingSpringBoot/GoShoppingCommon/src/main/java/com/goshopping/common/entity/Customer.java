@@ -34,8 +34,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(Integer id, String email, String password, String firstName, String lastName, String phoneNumber, String address, String postalCode) {
-        this.id = id;
+    public Customer(String email, String password, String firstName, String lastName, String phoneNumber, String address, String postalCode) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
