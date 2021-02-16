@@ -1,5 +1,6 @@
 package com.goshopping.site.admin.product;
 
+import com.goshopping.common.entity.Customer;
 import com.goshopping.common.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,13 +24,23 @@ public class ProductController {
         return "products"; //ficheiro que devolve
     }
 
+    @GetMapping("/products/new") //url que devolve a pag HTML5
+    public String newProduct(Model model) {
+        Product product = new Product();
+        model.addAttribute("product", product);
+
+        model.addAttribute("pageTitle", "Create New Product");
+
+        return "products_form"; //ficheiro que devolve
+    }
+
     //Para Save, ou seja, para adicionar ao Cart
     @PostMapping("/products/save") //TODO: mudar o url?
     public String saveProduct(Product product, RedirectAttributes redirectAttributes) {
         System.out.print(product);
         service.save(product);
 
-        redirectAttributes.addFlashAttribute("message", "The customer has been added to the cart succesfully!");
+        redirectAttributes.addFlashAttribute("message", "The product has been added successfully!");
         return "redirect:/products"; //TODO: qual URL? //TODO: Linha 67 do products.html
     }
 }

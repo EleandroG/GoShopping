@@ -62,7 +62,7 @@ public class CustomerController {
     public String deleteCustomer(@PathVariable(name = "id") Integer id, Model model, RedirectAttributes redirectAttributes) {
         try {
             service.delete(id);
-            redirectAttributes.addFlashAttribute("message", "The customer ID " + id + " has been deleted succesfully!");
+            redirectAttributes.addFlashAttribute("message", "The customer ID " + id + " has been deleted successfully!");
         } catch (UserNotFoundException exception) {
             redirectAttributes.addFlashAttribute("message", exception.getMessage());
         }

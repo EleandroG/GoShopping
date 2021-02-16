@@ -25,10 +25,10 @@ public class ProductsRepositoryTests {
     @Autowired
     private TestEntityManager testEntityManager;
 
-
+    //talvez o price deva ser um double
     @Test
     public void testCreateCustomer() {
-        Product product = new Product("5.99", "Peixe Robalo", "Peixe grande e fresco");
+        Product product = new Product("1.53", "Abacaxi", "Fruta cortada em metades");
         Product savedProduct = repo.save(product);
         assertThat(savedProduct.getId()).isGreaterThan(0);
     }
@@ -37,6 +37,7 @@ public class ProductsRepositoryTests {
     public void testListAllProducts() {
         Iterable<Product> listProducts = repo.findAll();
         listProducts.forEach(product -> System.out.println(product));
+
     }
 
     @Test

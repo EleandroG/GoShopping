@@ -25,8 +25,8 @@ public class ProductService {
         if (isUpdatingProduct) {
             Product existingProduct = productRepo.findById(product.getId()).get();
             product.setId(existingProduct.getId());
-            productRepo.save(product);
         }
+        productRepo.save(product);
     }
 
     public boolean isNameUnique(Integer id, String name) {
