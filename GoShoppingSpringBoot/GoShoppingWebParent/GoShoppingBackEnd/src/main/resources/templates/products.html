@@ -52,7 +52,7 @@
 
         <div>
             <h2>Products</h2>
-            <!-- TODO: URL para ver o cart? -->
+            <!-- TODO: URL para ver o cart? ou /shopping_cart?-->
             <a th:href="@{/products/cart}"> Cart </a>
         </div>
 
@@ -68,7 +68,6 @@
                         <th>Price</th>
                         <th>Name</th>
                         <th>Description</th>
-                        <th>Brand</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -76,9 +75,8 @@
                     <tr th:each="product : ${listProducts}">
                         <td>[[${product.id}]]</td>
                         <td>[[${product.price}]]</td>
-                        <td>[[${products.name}]]</td>
-                        <td>[[${products.description}]]</td>
-                        <td>[[${products.brand}]]</td>
+                        <td>[[${product.name}]]</td>
+                        <td>[[${product.description}]]</td>
                         <td>
                             <!-- TODO: URL para add ao cart? URL atual tá certo? -->
                             <a th:href="@{'/products' + ${product.id}}" title="Add to the cart"> + </a>

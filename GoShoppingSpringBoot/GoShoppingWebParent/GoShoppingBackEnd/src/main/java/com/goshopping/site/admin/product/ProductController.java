@@ -1,8 +1,6 @@
 package com.goshopping.site.admin.product;
 
-import com.goshopping.common.entity.Customer;
 import com.goshopping.common.entity.Product;
-import com.goshopping.site.admin.customer.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
