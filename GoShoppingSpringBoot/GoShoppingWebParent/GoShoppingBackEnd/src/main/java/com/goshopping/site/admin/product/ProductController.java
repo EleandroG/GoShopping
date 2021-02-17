@@ -50,7 +50,8 @@ public class ProductController {
     @PostMapping("/products/save/cart") //TODO: mudar o url?
     public String saveProductToCart(Product product, RedirectAttributes redirectAttributes) {
         System.out.print(product);
-        service.save(product);
+        //service.save(product);
+        service.saveToCart(product);
 
         redirectAttributes.addFlashAttribute("message", "The product has been added successfully to the shopping cart!");
         return "redirect:/products"; //TODO: qual URL? //TODO: Linha 67 do products.html

@@ -1,5 +1,6 @@
 package com.goshopping.site.admin.product;
 
+import com.goshopping.common.entity.CartItem;
 import com.goshopping.common.entity.Product;
 import com.goshopping.site.admin.user.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepo;
 
+    //@Autowired
+    private CartItem cartItem;
+
 
     public List<Product> listAll() {
         return (List<Product>) productRepo.findAll();
@@ -27,6 +31,17 @@ public class ProductService {
             product.setId(existingProduct.getId());
         }
         productRepo.save(product);
+    }
+
+    public void saveToCart(Product product) {
+        boolean isUpdatingProduct = (product.getId() != null);
+
+        if (isUpdatingProduct) {
+            Product existingProduct = productRepo.findById(product.getId()).get();
+            product.setId(existingProduct.getId());
+        }
+        //productRepo.save(product);
+        cartItem.addProduct(product);
     }
 
     public boolean isNameUnique(Integer id, String name) {

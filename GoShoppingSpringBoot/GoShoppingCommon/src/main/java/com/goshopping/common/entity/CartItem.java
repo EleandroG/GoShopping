@@ -1,6 +1,9 @@
 package com.goshopping.common.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "cart_items")
@@ -10,9 +13,10 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    //@ManyToOne
+    //@JoinColumn(name = "product_id")
+    @OneToMany
+    private Set<Product> products = new HashSet<>();
 
     //TODO: Um mero atributo ou faço mesmo a ligação?
     @ManyToOne
@@ -20,6 +24,13 @@ public class CartItem {
     private Customer customer;
 
     private int quantity;
+
+    public CartItem() {
+    }
+    public CartItem(Customer customer, int quantity) {
+        this.customer = customer;
+        this.quantity = quantity;
+    }
 
     public Integer getId() {
         return id;
@@ -29,12 +40,12 @@ public class CartItem {
         this.id = id;
     }
 
-    public Product getProduct() {
-        return product;
+    public Set<Product> getProducts() {
+        return products;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 
     public Customer getCustomer() {
@@ -52,4 +63,13 @@ public class CartItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    /*public void addRole(Role role) {
+        this.roles.add(role);
+    }
+
+     private Set<Role> roles = new HashSet<>();
+    */
+
+    public void addProduct(Product product) { this.products.add(product);}
 }

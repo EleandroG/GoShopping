@@ -19,17 +19,14 @@ public class Product {
     @Column(name = "description", length = 45, nullable = false)
     private String description;
 
-    /*@Column(name = "brand", length = 20, nullable = false)
-    private String brand;*/
 
     public Product() {
     }
 
-    public Product(String price, String name, String description/*, String brand*/) {
+    public Product(String price, String name, String description) {
         this.price = price;
         this.name = name;
         this.description = description;
-        //this.brand = brand;
     }
 
     public Integer getId() {
@@ -63,11 +60,4 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-    /*public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }*/
 }
