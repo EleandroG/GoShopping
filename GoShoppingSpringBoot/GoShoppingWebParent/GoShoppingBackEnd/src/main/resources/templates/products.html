@@ -79,7 +79,7 @@
                         <td>[[${product.description}]]</td>
                         <td>
                             <!-- TODO: URL para add ao cart? URL atual tá certo? -->
-                            <a th:href="@{'/products' + ${product.id}}" title="Add to the cart"> + </a>
+                            <a th:href="@{'/products/edit/' + ${product.id}}" title="Add to the cart"> ADD </a>
                             <!-- &nbsp;
                             <a class="fas fa-trash fa-2x icon-dark link-delete" th:href="@{'/customers/delete/' + ${customer.id}}" th:customerId="${customer.id}" title="Delete this customer">Delete</a> -->
                         </td>

@@ -1,7 +1,5 @@
 package com.goshopping.site.admin.cart;
 
-import com.goshopping.common.entity.CartItem;
-import com.goshopping.common.entity.Customer;
 import com.goshopping.site.admin.customer.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
