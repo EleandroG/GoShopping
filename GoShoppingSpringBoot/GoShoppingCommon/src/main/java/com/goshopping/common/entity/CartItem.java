@@ -14,6 +14,7 @@ public class CartItem {
     @JoinColumn(name = "product_id")
     private Product product;
 
+    //TODO: Um mero atributo ou faço mesmo a ligação?
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;

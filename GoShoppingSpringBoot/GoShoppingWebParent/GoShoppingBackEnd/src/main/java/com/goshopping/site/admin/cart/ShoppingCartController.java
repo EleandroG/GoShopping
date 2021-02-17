@@ -20,12 +20,12 @@ public class ShoppingCartController {
     private CustomerService customerService;
 
     @GetMapping("/products/cart")
-    public String showShoppingCart(Model model/*, @AuthenticationPrincipal Authentication authentication*/) {
+    public String showShoppingCart(Model model)/*, @AuthenticationPrincipal Authentication authentication*/ {
 
-        Customer customer = new Customer();
-        List<CartItem> cartItems = cartService.listCartItems(customer);
+        //Customer customer = new Customer();
+        //List<CartItem> cartItems = cartService.listCartItems(customer);
 
-        model.addAttribute("cartItems", cartItems);
+        //model.addAttribute("cartItems", cartItems);
         model.addAttribute("pageTitle", "Shopping Cart");
 
         return "shopping_cart";

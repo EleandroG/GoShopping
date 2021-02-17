@@ -36,7 +36,7 @@ public class ShoppingCartTests {
         Customer customer = entityManager.find(Customer.class, 5);
 
         CartItem newItem = new CartItem();
-        newItem.setCustomer(customer);
+        //newItem.setCustomer(customer);
         newItem.setProduct(product);
         newItem.setQuantity(1);
 
