@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0">
 
-    <title>Home (Admin)</title>
+    <title>Products (Admin)</title>
 
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/fontawesome/all.css}"/>
@@ -37,6 +37,9 @@
                             <a class="nav-link" th:href="@{/products}">Products</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" th:href="@{/cart}">Cart</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" th:href="@{/categories}">Categories</a>
                         </li>
                         <li class="nav-item">
@@ -53,7 +56,7 @@
         <div>
             <h2>Products</h2>
             <!-- TODO: URL para ver o cart? ou /shopping_cart?-->
-            <a th:href="@{/products/cart}"> Cart </a>
+            <a th:href="@{/products/cart}"> Add a product to the Cart </a>
         </div>
 
         <div th:if="${message != null}" class="alert alert-success text-center">
@@ -113,7 +116,7 @@
             </div>  -->
 
             <div class="text-center">
-                <p>GoShopping Customers Panel - Copyright &copy; GoShopping</p>
+                <p>GoShopping Products Panel - Copyright &copy; GoShopping</p>
             </div>
         </div>
     </body>

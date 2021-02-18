@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0">
 
-    <title>[[${pageTitle}]]</title>
+    <title>[[${pageTitle}]] (Customer)</title>
 
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
@@ -35,6 +35,9 @@
                             <a class="nav-link" th:href="@{/products}">Products</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" th:href="@{/cart}">Cart</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" th:href="@{/categories}">Categories</a>
                         </li>
                         <li class="nav-item">
@@ -52,7 +55,7 @@
             <h2>Manage Cart | [[${pageTitle}]]</h2>
         </div>
 
-        <form th:action="@{/products/save/cart}" method="post" style="max-width: 700px; margin: 0 auto" th:object="${product}"
+        <form th:action="@{/shoppingCart/addProduct/}" method="post" style="max-width: 700px; margin: 0 auto" th:object="${product}"
               onsubmit="return">
                 <div class="text-center">
                     <input type="submit" value="Save" class="btn btn-primary m-3"/>

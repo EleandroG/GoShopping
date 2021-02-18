@@ -2,33 +2,32 @@ package com.goshopping.common.entity;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "cart_items")
+@Table(name = "cart")
 public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id; //ID dos products
 
-    //@ManyToOne
-    //@JoinColumn(name = "product_id")
-    @OneToMany
-    private Set<Product> products = new HashSet<>();
+    @Column(name = "price", length = 45, nullable = false)
+    private Double price;
 
-    //TODO: Um mero atributo ou faço mesmo a ligação?
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    @JoinColumn(name = "name")
+    private String name;
 
-    private int quantity;
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
 
     public CartItem() {
     }
-    public CartItem(Customer customer, int quantity) {
-        this.customer = customer;
+
+    public CartItem(Double price, String name, Integer quantity) {
+        this.price = price;
+        this.name = name;
         this.quantity = quantity;
     }
 
@@ -40,36 +39,40 @@ public class CartItem {
         this.id = id;
     }
 
-    public Set<Product> getProducts() {
-        return products;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public String getName() {
+        return name;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    /*public void addRole(Role role) {
-        this.roles.add(role);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CartItem cartItem = (CartItem) o;
+        return Objects.equals(id, cartItem.id) && Objects.equals(price, cartItem.price) && Objects.equals(name, cartItem.name) && Objects.equals(quantity, cartItem.quantity);
     }
 
-     private Set<Role> roles = new HashSet<>();
-    */
-
-    public void addProduct(Product product) { this.products.add(product);}
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, price, name, quantity);
+    }
 }

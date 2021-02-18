@@ -6,7 +6,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-@Repository
+import java.util.Optional;
+
+@Repository //JpaRepository
 public interface ProductRepository extends CrudRepository<Product, Integer> {
 
     @Query("SELECT u FROM Product u WHERE u.name =:name")
@@ -14,4 +16,5 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 
     public Long countById(Integer id);
 
+    Optional<Product> findById(Long id);
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/GoShoppingSpringBoot/GoShoppingCommon/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GoShoppingSpringBoot/GoShoppingCommon/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GoShoppingSpringBoot/GoShoppingWebParent/GoShoppingBackEnd/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GoShoppingSpringBoot/GoShoppingWebParent/GoShoppingBackEnd/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GoShoppingSpringBoot/GoShoppingWebParent/GoShoppingFrontEnd/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GoShoppingSpringBoot/GoShoppingWebParent/GoShoppingFrontEnd/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GoShoppingSpringBoot/GoShoppingWebParent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GoShoppingSpringBoot/GoShoppingWebParent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GoShoppingSpringBoot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GoShoppingSpringBoot/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

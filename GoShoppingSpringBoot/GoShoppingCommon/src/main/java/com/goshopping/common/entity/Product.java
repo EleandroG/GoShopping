@@ -19,6 +19,8 @@ public class Product {
     @Column(name = "description", length = 45, nullable = false)
     private String description;
 
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
 
     public Product() {
     }
@@ -56,8 +58,30 @@ public class Product {
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        return id.equals(product.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 }

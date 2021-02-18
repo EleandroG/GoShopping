@@ -36,7 +36,7 @@ public class ProductController {
         return "products_form"; //ficheiro que devolve
     }
 
-
+    //guarda novos produtos
     @PostMapping("/products/save")
     public String saveProduct(Product product, RedirectAttributes redirectAttributes) {
         System.out.print(product);
@@ -46,17 +46,7 @@ public class ProductController {
         return "redirect:/products";
     }
 
-    //Para Save, ou seja, para adicionar ao Cart
-    @PostMapping("/products/save/cart") //TODO: mudar o url?
-    public String saveProductToCart(Product product, RedirectAttributes redirectAttributes) {
-        System.out.print(product);
-        //service.save(product);
-        service.saveToCart(product);
-
-        redirectAttributes.addFlashAttribute("message", "The product has been added successfully to the shopping cart!");
-        return "redirect:/products"; //TODO: qual URL? //TODO: Linha 67 do products.html
-    }
-
+    //page antes da adição com o save
     @GetMapping("/products/edit/{id}")
     public String editProduct(@PathVariable(name = "id") Integer id, Model model, RedirectAttributes redirectAttributes) {
         try {
@@ -69,5 +59,17 @@ public class ProductController {
             redirectAttributes.addFlashAttribute("message", exception.getMessage());
             return "redirect:/products";
         }
+    }
+
+    @GetMapping("/products/cart")
+    public String showShoppingCart(Model model)/*, @AuthenticationPrincipal Authentication authentication*/ {
+
+        //Customer customer = new Customer();
+        //List<CartItem> cartItems = cartService.listCartItems(customer);
+
+        //model.addAttribute("cartItems", cartItems);
+        model.addAttribute("pageTitle", "Shopping Cart");
+
+        return "shopping_cart";
     }
 }

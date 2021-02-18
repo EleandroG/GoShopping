@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="GoShoppingBackEnd" />
+        <module name="GoShoppingFrontEnd" />
+        <module name="GoShoppingCommon" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="GoShopping" target="11" />
+      <module name="GoShoppingBackEnd" target="1.8" />
+      <module name="GoShoppingCommon" target="11" />
+      <module name="GoShoppingFrontEnd" target="1.8" />
+      <module name="GoShoppingWebParent" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="GoShoppingBackEnd" options="-parameters" />
+      <module name="GoShoppingCommon" options="-parameters" />
+      <module name="GoShoppingFrontEnd" options="-parameters" />
+    </option>
+  </component>
+</project>
