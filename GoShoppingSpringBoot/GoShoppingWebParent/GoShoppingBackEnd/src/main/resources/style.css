@@ -2,3 +2,13 @@
 *.icon-silver {color: silver}
 *.icon-green {color: green}
 *.icon-dark {color: gray}
+
+
+body {
+    background-image: url("1.jpg");
+}
+
+h1 {
+    color: navy;
+    margin-left: 20px;
+}
