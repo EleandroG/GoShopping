@@ -82,7 +82,7 @@
                 <td>
                     <a class="fas fa-edit fa-2x icon-green" th:href="@{'/cartItems/edit/' + ${cartItem.id}}" title="Edit the quantity">Edit</a>
                     &nbsp;
-                    <a class="fas fa-trash fa-2x icon-dark link-delete" th:href="@{'/cartItems/delete/' + ${cartItem.id}}" th:customerId="${cartItem.id}" title="Delete this item">Delete</a>
+                    <a class="fas fa-trash fa-2x icon-dark link-delete" th:href="@{'/cartItems/delete/' + ${cartItem.id}}" th:cartItem="${cartItem.id}" title="Delete this item">Delete</a>
                 </td>
             </tr>
             </tbody>
@@ -125,7 +125,7 @@
             //alert($(this).attr("href"));
             cartItemId = link.attr("cartItemId");
             $("#yesButton").attr("href", link.attr("href"));
-            $("#confirmText").text("Are you sure you want to delete this item ID: " + cartItemId + " ?")
+            $("#confirmText").text("Are you sure you want to delete this item ?")
             $("#confirmModal").modal();
         })
     })

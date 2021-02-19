@@ -55,10 +55,10 @@ public class CartItemService {
         }
     }
 
-    public void delete(Integer id) throws UserNotFoundException {
+    public void delete(Integer id) throws CartItemNotFoundException {
         Long countById = cartItemRepo.countById(id);
         if (countById == null || countById == 0) {
-            throw new UserNotFoundException("Could not find any item with ID: " + id);
+            throw new CartItemNotFoundException("Could not find any item with ID: " + id);
         }
         cartItemRepo.deleteById(id);
     }

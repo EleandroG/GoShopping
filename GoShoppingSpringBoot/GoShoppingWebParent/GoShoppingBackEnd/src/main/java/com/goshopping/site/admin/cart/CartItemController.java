@@ -55,7 +55,7 @@ public class CartItemController {
             model.addAttribute("cartItem", cartItem);
 
             model.addAttribute("pageTitle", "Editing Item (ID: " + id + ")");
-            return "cart_edit";
+            return "cart_form";
         } catch (UserNotFoundException exception) {
             redirectAttributes.addFlashAttribute("message", exception.getMessage());
             return "redirect:/cart_items";
@@ -63,11 +63,11 @@ public class CartItemController {
     }
 
     @GetMapping("/cartItems/delete/{id}")
-    public String deleteCustomer(@PathVariable(name = "id") Integer id, Model model, RedirectAttributes redirectAttributes) {
+    public String deleteCartItem(@PathVariable(name = "id") Integer id, Model model, RedirectAttributes redirectAttributes) {
         try {
             service.delete(id);
-            redirectAttributes.addFlashAttribute("message", "The Item ID " + id + " has been deleted successfully!");
-        } catch (UserNotFoundException exception) {
+            redirectAttributes.addFlashAttribute("message", "The item has been deleted successfully!");
+        } catch (CartItemNotFoundException exception) {
             redirectAttributes.addFlashAttribute("message", exception.getMessage());
         }
         return "redirect:/cart_items";
