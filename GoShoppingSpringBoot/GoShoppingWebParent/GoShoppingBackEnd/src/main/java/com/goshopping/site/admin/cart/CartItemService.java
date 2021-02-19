@@ -3,9 +3,12 @@ package com.goshopping.site.admin.cart;
 import com.goshopping.common.entity.CartItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.goshopping.site.admin.user.UserNotFoundException;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.NoSuchElementException;
 
+@Service
 public class CartItemService {
     @Autowired
     private CartItemRepository cartItemRepo;

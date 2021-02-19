@@ -35,7 +35,7 @@
                             <a class="nav-link" th:href="@{/products}">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/cart}">Cart</a>
+                            <a class="nav-link" th:href="@{/cartItems}">Cart</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" th:href="@{/categories}">Categories</a>
@@ -128,7 +128,7 @@
             productName = $("#name").val();
             productId = $("#id").val();
             csrfValue = $("input[name='_csrf']").val();
-            params = {id: productId, email: productsName, _csrf: csrfValue};
+            params = {id: productId, name: productName, _csrf: csrfValue};
 
             $.post(url, params, function(response) {
                 if (response === "OK") {
