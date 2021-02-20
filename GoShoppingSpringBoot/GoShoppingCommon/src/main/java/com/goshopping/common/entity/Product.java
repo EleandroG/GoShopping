@@ -3,14 +3,14 @@ package com.goshopping.common.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "products")
+@Table(name = "productss")
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "price", length = 45, nullable = false)
+    @Column(name = "price", length = 15, nullable = false)
     private String price;
 
     @Column(name = "name", length = 45, nullable = false)
@@ -18,9 +18,6 @@ public class Product {
 
     @Column(name = "description", length = 45, nullable = false)
     private String description;
-
-    @Column(name = "quantity", nullable = false)
-    private Integer quantity;
 
     public Product() {
     }
@@ -62,14 +59,7 @@ public class Product {
         this.description = description;
     }
 
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
+/*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -83,5 +73,5 @@ public class Product {
     @Override
     public int hashCode() {
         return id.hashCode();
-    }
+    }*/
 }

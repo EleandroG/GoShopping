@@ -15,6 +15,4 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
     public Product getProductByName(@Param("name") String name);
 
     public Long countById(Integer id);
-
-    Optional<Product> findById(Long id);
 }

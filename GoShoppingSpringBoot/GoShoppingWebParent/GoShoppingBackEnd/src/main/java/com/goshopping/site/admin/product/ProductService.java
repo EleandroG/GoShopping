@@ -20,14 +20,6 @@ public class ProductService {
     @Autowired
     private ProductService service;
 
-    public Optional<Product> findById(Long id) {
-        return null;
-    }
-
-    public Page<Product> findAllProductsPageable(Pageable pageable) {
-        return null;
-    }
-
 
     public List<Product> listAll() {
         return (List<Product>) productRepo.findAll();
@@ -35,58 +27,44 @@ public class ProductService {
 
 
     //Add um novo produto ao site
-    public void save(Product product) {
-        boolean isUpdatingProduct = (product.getId() != null);
+    public void save(Product products) {
+        boolean isUpdatingProduct = (products.getId() != null);
 
         if (isUpdatingProduct) {
-            Product existingProduct = productRepo.findById(product.getId()).get();
-            product.setId(existingProduct.getId());
+            Product existingProduct = productRepo.findById(products.getId()).get();
+            products.setId(existingProduct.getId());
         }
-        productRepo.save(product);
+        productRepo.save(products);
     }
 
-    //Add para o cart
-    /*public void saveToCart(Product product) {
-        boolean isUpdatingProduct = (product.getId() != null);
-
-        if (isUpdatingProduct) {
-            Product existingProduct = productRepo.findById(product.getId()).get();
-            product.setId(existingProduct.getId());
-        }
-//        productRepo.save(product);
-        cartItem.addProduct(product);
-        //List<CartItem> cartItems = service.listAll();
-        //List<Product> listProducts = service.listAll();
-    }*/
-
     public boolean isNameUnique(Integer id, String name) {
-        Product productByName = productRepo.getProductByName(name);
+        Product productsByName = productRepo.getProductByName(name);
 
-        if (productByName == null) return true;
+        if (productsByName == null) return true;
 
         boolean isCreatingNew = (id == null);
         if (isCreatingNew) {
-            if (productByName != null) return false;
+            if (productsByName != null) return false;
         } else {
-            if (productByName.getId() != id) {
+            if (productsByName.getId() != id) {
                 return false;
             }
         }
         return true;
     }
 
-    public Product get(Integer id) throws UserNotFoundException {
+    public Product get(Integer id) throws ProductNotFoundException {
         try {
             return productRepo.findById(id).get();
         } catch (NoSuchElementException exception) {
-            throw new UserNotFoundException("Could not find any product with ID: " + id);
+            throw new ProductNotFoundException("Could not find any product with ID: " + id);
         }
     }
 
-    public void delete(Integer id) throws UserNotFoundException {
+    public void delete(Integer id) throws ProductNotFoundException {
         Long countById = productRepo.countById(id);
         if (countById == null || countById == 0) {
-            throw new UserNotFoundException("Could not find any product with ID: " + id);
+            throw new ProductNotFoundException("Could not find any product with ID: " + id);
         }
         productRepo.deleteById(id);
     }

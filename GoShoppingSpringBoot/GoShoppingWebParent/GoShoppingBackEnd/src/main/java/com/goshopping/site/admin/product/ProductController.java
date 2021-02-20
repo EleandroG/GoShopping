@@ -55,7 +55,7 @@ public class ProductController {
 
             model.addAttribute("pageTitle", "Adding Product (ID: " + id + ")");
             return "save_shopping_cart";
-        } catch (UserNotFoundException exception) {
+        } catch (ProductNotFoundException exception) {
             redirectAttributes.addFlashAttribute("message", exception.getMessage());
             return "redirect:/products";
         }

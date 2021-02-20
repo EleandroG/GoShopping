@@ -27,8 +27,8 @@ public class ProductsRepositoryTests {
 
     //talvez o price deva ser um double
     @Test
-    public void testCreateCustomer() {
-        Product product = new Product("1.53", "Abacaxi", "Fruta cortada em metades");
+    public void testCreateProduct() {
+        Product product = new Product("1.53", "Robalo", "Peixe fresco.");
         Product savedProduct = repo.save(product);
         assertThat(savedProduct.getId()).isGreaterThan(0);
     }
@@ -56,7 +56,7 @@ public class ProductsRepositoryTests {
 
     @Test
     public void testDeleteProduct() {
-        Integer productId = 1;
+        Integer productId = 5;
         repo.deleteById(productId);
     }
 
