@@ -16,4 +16,9 @@ public class MainController {
         return "brands";
     }
 
+    @GetMapping("/orders")
+    public String viewPageOrders() {
+        return "orders";
+    }
+
 }
