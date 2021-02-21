@@ -11,14 +11,4 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/brands")
-    public String viewPageBrands() {
-        return "brands";
-    }
-
-    @GetMapping("/orders")
-    public String viewPageOrders() {
-        return "orders";
-    }
-
 }

@@ -56,7 +56,7 @@ public class ProductsRepositoryTests {
 
     @Test
     public void testDeleteProduct() {
-        Integer productId = 5;
+        Integer productId = 4;
         repo.deleteById(productId);
     }
 
